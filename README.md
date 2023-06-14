@@ -6,13 +6,12 @@
 | ------------------    | ------ | ----------- |
 | nickname              | string | null: false|
 | email                 | string | null: false , unique: true|
-| password              | string | null: false |
-| password-confirmation | string | null: false |
-| last-name             | string | null:false  |
-| first-name            | string | null: false |
-| last-name-kana        | string | null: false |
-| first-name-kana       | string | null: false |
-| birth-date            | integer| null: false |
+| encrypted_password    | string | null: false |
+| last_name             | string | null:false  |
+| first_name            | string | null: false |
+| last_name_kana        | string | null: false |
+| first_name_kana       | string | null: false |
+| birth_date            | date   | null: false |
 
 ### Association
 - has_many :items
@@ -20,14 +19,19 @@
 
 ## items テーブル
 
-| Column             | Type      | Options     |
-| ------------------ | ------    | ----------- |
-| item-image         | string    | null: false |
-| item-name          | string    | null: false |
-| item-info          | text      | null: false |
-| item-category      | integer   | null: false |
-| item-sales-status  | integer   | null: false |
-| user               | reference | null: false, foreign_key: true |
+| Column                   | Type      | Options     |
+| ------------------       | ------    | ----------- |
+| item_name                | string    | null: false |
+| item_info                | text      | null: false |
+| item_category            | integer   | null: false |
+| item_sales-status        | integer   | null: false |
+| item_shipping_fee_status | integer   | null: false |
+| item_prefecture          | integer   | null: false |
+| item_scheduled_delivery  | integer   | null: false |
+| item_price               | string    | null: false |
+| add_tax-price            | string    | null: false |
+| profit                   | string    | null: false |
+| user                     | reference | null: false, foreign_key: true |
 
 ### Association
 
@@ -36,14 +40,8 @@
 
 ##　orders テーブル
 
-| Column                   | Type   | Options     |
-| ------------------       | ------ | ----------- |
-| item-shipping-fee-status | integer| null: false |
-| item-prefecture          | integer| null: false |
-| item-scheduled-delivery  | integer| null: false |
-| item-price               | string | null: false |
-| add-tax-price            | string | null: false |
-| profit                   | string | null: false |
+| Column                   | Type      | Options     |
+| ------------------       | ------    | ----------- |
 | user                     | reference | null: false, foreign_key: true |
 | items                    | reference | null: false, foreign_key: true |
 
@@ -51,19 +49,21 @@
 
 - belongs_to :user
 - belongs_to :item
-- belongs_to :shipping
+- has_one :shipping
 
 ## shippings テーブル
 
 | Column             | Type      | Options     |
 | ------------------ | ------    | ----------- |
-| postal-code        | string    | null: false |
+| postal_code        | string    | null: false |
 | prefecture         | integer   | null: false |
 | city               | string    | null: false |
 | addresses          | string    | null: false |
-| building           | string    | null: false |
-| phone-number       | string    | null: false |
+| building           | string    |
+| phone_number       | string    | null: false |
+| orders             | reference | null: false, foreign_key: true |
+
 
 ### Association
 
-- has_one :order 
+- belongs_to:order 
