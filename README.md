@@ -19,19 +19,17 @@
 
 ## items テーブル
 
-| Column                   | Type      | Options     |
-| ------------------       | ------    | ----------- |
-| item_name                | string    | null: false |
-| item_info                | text      | null: false |
-| item_category            | integer   | null: false |
-| item_sales-status        | integer   | null: false |
-| item_shipping_fee_status | integer   | null: false |
-| item_prefecture          | integer   | null: false |
-| item_scheduled_delivery  | integer   | null: false |
-| item_price               | string    | null: false |
-| add_tax-price            | string    | null: false |
-| profit                   | string    | null: false |
-| user                     | reference | null: false, foreign_key: true |
+| Column                      | Type      | Options     |
+| ------------------          | ------    | ----------- |
+| item_name                   | string    | null: false |
+| item_info                   | text      | null: false |
+| item_category_id            | integer   | null: false |
+| item_sales-status_id        | integer   | null: false |
+| item_shipping_fee_status_id | integer   | null: false |
+| item_prefecture_id          | integer   | null: false |
+| item_scheduled_delivery_id  | integer   | null: false |
+| item_price                  | string    | null: false |
+| user                        | reference | null: false, foreign_key: true |
 
 ### Association
 
@@ -56,7 +54,7 @@
 | Column             | Type      | Options     |
 | ------------------ | ------    | ----------- |
 | postal_code        | string    | null: false |
-| prefecture         | integer   | null: false |
+| prefecture_id      | integer   | null: false |
 | city               | string    | null: false |
 | addresses          | string    | null: false |
 | building           | string    |
