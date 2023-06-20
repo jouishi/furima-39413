@@ -16,14 +16,13 @@
     </div>
     <div class="item-price-box">
       <span class="item-price">
-        <%=@item.item_price %>
+        ¥<%=@item.item_price %>
       </span>
       <span class="item-postage">
-        <%= @item.item_scheduled_delivery.name %>
+        <%= @item.item_shipping_fee_status.name %>
       </span>
     </div>
 
-    <%# ログインしているユーザーと出品しているユーザーが、同一人物の場合と同一人物ではない場合で、処理を分けましょう %>
     <% if current_user == @item.user %>
   <%= link_to "商品の編集", "#", method: :get, class: "item-red-btn" %>
   <p class="or-text">or</p>
