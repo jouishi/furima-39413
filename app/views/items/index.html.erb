@@ -130,7 +130,15 @@
   <% @items.each do |item| %>
     <li class='list'>
       <%= link_to item_path(item) do %>
+      <div class="item-img-content">
         <%= image_tag item.item_image.variant(resize: '500x500'), class: 'item-image' if item.item_image.attached? %>
+           <% if item.order.present? %>
+                <div class='sold-out'>
+                   <span>Sold Out!!</span>
+                </div>
+           <% end %>
+       </div>
+
         <h3 class='item-name'>
           <%= item.item_name %>
         </h3>
