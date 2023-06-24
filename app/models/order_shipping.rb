@@ -9,6 +9,8 @@ class OrderShipping
     validates :addresses
     validates :phone_number, format: { with: /\A\d{10,11}\z/ }
     validates :prefecture_id, numericality: { other_than: 1, message: "can't be blank" }
+    validates :user_id
+    validates :item_id
   end
 
   def save
