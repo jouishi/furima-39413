@@ -32,7 +32,7 @@ class OrdersController < ApplicationController
 
   def check_edit_permission
     item = Item.find(params[:item_id])
-    redirect_to root_path if item.user == current_user
+    redirect_to root_path if item.order.present? || item.user == current_user
   end
 
   def order_params
