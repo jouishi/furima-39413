@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
   has_one_attached :item_image
+  has_one :order
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :item_category

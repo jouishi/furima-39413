@@ -46,7 +46,7 @@ class ItemsController < ApplicationController
   end
 
   def check_edit_permission
-    return if @item.user == current_user
+    return unless @item.order.present? && @item.user == current_user
 
     redirect_to root_path
   end
