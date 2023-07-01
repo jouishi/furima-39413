@@ -60,6 +60,8 @@ group :development do
  
 end
 
+
+
 group :production do
   gem 'unicorn', '5.4.1'
 end
@@ -70,12 +72,13 @@ gem 'devise'
 gem'pry-rails'
 
 gem 'mini_magick'
+
 gem 'image_processing', '~> 1.2'
 
 gem 'active_hash'
 
 gem 'payjp'
 
- gem 'faker'
+gem 'faker'
 
- gem "aws-sdk-s3", require: false
+gem "aws-sdk-s3", require: false
